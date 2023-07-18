@@ -3,12 +3,15 @@
 import { useRouter } from "next/navigation";
 import { useEffect } from "react"
 
-export default function Home() {
+const DashBoard = () => {
   const router = useRouter();
   useEffect(() => {
-    router.push('/dashboard')
+    router.push('/dashboard/home')
   }, [])
+
   return (
-    <div>h1</div>
+    <div className=''></div>
   )
 }
+
+export default DashBoard
