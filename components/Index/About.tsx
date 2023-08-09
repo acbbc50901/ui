@@ -54,7 +54,7 @@ const About = () => {
       <div className=' w-full p-2 sm:w-[80%] lg:w-[60%]  h-full flex justify-center items-center m-auto lg:m-0'>
         <div className=' border w-full sm:w-[80%] max-w-xl flex flex-col p-3 sm:p-5 border-neutral-400 shadow-lg rounded-sm'>
           <div className=' py-2'>
-            <h5 className=' text-xl sm:text-2xl font-bold m-0'>陳某某</h5>
+            <h5 className=' text-xl sm:text-2xl font-bold m-0'>黃信誠</h5>
             <p className=' text-sm text-neutral-500'>Jarry</p>
           </div>
           <div className=''>
