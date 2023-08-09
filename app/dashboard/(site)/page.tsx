@@ -201,7 +201,9 @@ const Home = () => {
         <TopBox topdata={topDealUsers}/>
       </div>
       <div className='box box2'>
-        <CharBox {...chartBoxUser}/>
+        <CharBox title={chartBoxUser.title} icon={chartBoxUser.icon}
+          number={chartBoxUser.number} dataKey={chartBoxUser.dataKey}
+          color={chartBoxUser.color} percentage={chartBoxUser.percentage} data={chartBoxUser.data} />
       </div>
       <div className='box box3'>
         <CharBox {...chartBoxProduct}/>

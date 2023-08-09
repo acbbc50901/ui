@@ -8,16 +8,16 @@ interface Props {
   title: string,
 }
 
-const BarCharBox = (props : Props) => {
+const BarCharBox: React.FC<Props> = ({data,title,color,dataKey}) => {
   return (
     <div className=' h-full'>
-      <h1 className=' text-xl font-semibold'>{props.title}</h1>
+      <h1 className=' text-xl font-semibold'>{title}</h1>
       <div className=' h-full'>
         <ResponsiveContainer width="90%" height="80%">
-          <BarChart data={props.data}>
+          <BarChart data={data}>
             <Tooltip contentStyle={{background: '#2a3447', borderRadius: '5px'}}
               labelStyle={{display: 'none'}}  cursor={{fill: 'none'}}/>
-            <Bar dataKey={props.dataKey} fill={props.color} />
+            <Bar dataKey={dataKey} fill={color} />
           </BarChart>
         </ResponsiveContainer>
       </div>

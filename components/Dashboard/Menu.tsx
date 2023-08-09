@@ -7,110 +7,27 @@ import { BsFillPeopleFill, BsPencilSquare } from 'react-icons/bs'
 import { BiNotepad } from 'react-icons/bi'
 import { FaClipboardList } from 'react-icons/fa'
 import NavList from './NavList'
+import { IconType } from 'react-icons'
 
-const Navbar = [
-  {
-    titel: 'MAIN',
-    Link: [
-      {
-        icon: AiOutlineHome,
-        text: 'HomePage',
-        link: '/dashboard/home',
-      },
-      {
-        icon: BsFillPeopleFill,
-        link: '/dashboard/profile',
-        text: 'Profile',
-      },
-    ],
-  },
-  {
-    titel: 'LISTS',
-    Link: [
-      {
-        icon: BsFillPeopleFill,
-        link: '/dashboard/users',
-        text: 'Users',
-      },
-      {
-        icon: AiOutlineShoppingCart,
-        link: '/dashboard/products',
-        text: 'Products',
-      },
-      {
-        icon: FaClipboardList,
-        link: '/dashboard/orders',
-        text: 'Orders',
-      },
-      {
-        icon: AiOutlineBook,
-        link: '/dashboard/posts',
-        text: 'Posts',
-      },
-    ],
-  },
-  {
-    titel: 'GENERAL',
-    Link: [
-      {
-        icon: AiFillAppstore,
-        link: '/dashboard/elemnts',
-        text: 'Elemnts',
-      },
-      {
-        icon: BsPencilSquare,
-        link: '/dashboard/notes',
-        text: 'Notes',
-      },
-      {
-        icon: AiFillDatabase,
-        link: '/dashboard/forms',
-        text: 'Forms',
-      },
-      {
-        icon: BiNotepad,
-        link: '/dashboard/calendar',
-        text: 'Calendar',
-      },
-    ],
-  },
-  {
-    titel: 'MAINTENANCE',
-    Link: [
-      {
-        icon: AiOutlineSetting,
-        link: '/dashboard/settings',
-        text: 'Settings',
-      },
-      {
-        icon: MdBackup,
-        link: '/dashboard/backups',
-        text: 'Backups',
-      },
-    ],
-  },
-  {
-    titel: 'ANALYTICS',
-    Link: [
-      {
-        icon: AiOutlineBarChart,
-        link: '/dashboard/charts',
-        text: 'Charts',
-      },
-      {
-        icon: FaClipboardList,
-        link: '/dashboard/logs',
-        text: 'Logs',
-      },
-    ],
-  },
-];
-const Menu = () => {
+interface Type {
+  titel: string,
+  Link: {
+    icon: IconType,
+    link: string,
+    text: string,
+  }[],
+}
+
+interface Props {
+  NavbarData: Type[],
+}
+
+const Menu: React.FC<Props> = ({NavbarData}) => {
   return (
     <div className='menu'>
       <div className='item'>
         {
-          Navbar.map((item, key) => {
+          NavbarData.map((item, key) => {
             return (
               <>
                 <span className=' hidden sm:block uppercase text-neutral-400 text-xs' key={key}> {item.titel} </span>

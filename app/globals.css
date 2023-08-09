@@ -3,17 +3,21 @@
 @tailwind utilities;
 
 body, html, #root {
-  width: 100%;
-  height: 100%;
   box-sizing: border-box;
   margin: 0px;
   padding: 0px;
+  text-decoration: none;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 .gridbox {
   grid-auto-rows: minmax(100px, auto);
   grid-template-columns: repeat(4, 1fr);
   grid-auto-flow: dense;
+}
+.gridmax {
+  grid-auto-rows: minmax(100px, auto);
 }
 @media screen and (max-width: 1400px) {
   .gridbox {

@@ -4,6 +4,7 @@ const nextConfig = {
     domains: [
       'images.pexels.com',
       'store.sony.com.au',
+      'xuguamvrhqpydrqyajyd.supabase.co',
     ]
   }
 }

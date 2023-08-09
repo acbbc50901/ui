@@ -1,13 +1,21 @@
+"use client"
+
 import Image from "next/image"
-import { AiOutlineSearch, AiFillAppstore, AiOutlineExpand, AiOutlineSetting } from 'react-icons/ai'
+import Link from "next/link"
+import { AiOutlineSearch, AiFillAppstore, AiOutlineExpand, AiOutlineHome } from 'react-icons/ai'
 import { IoIosNotificationsOutline } from 'react-icons/io'
+import { useRouter } from "next/navigation"
+
 const DashboardNav = () => {
+
+  const router = useRouter();
+
   return (
     <div className=' w-full flex justify-between p-5'>
-      <div className="flex items-center">
+      <Link href='/' className="flex items-center cursor-pointer" >
         <Image src='/logo.svg' alt="logo" width={50} height={50}/>
         <span>DashBorad</span>
-      </div>
+      </Link>
       <div className=" flex items-center gap-2">
         <AiOutlineSearch className="cursor-pointer hidden sm:block" size={25}/>
         <AiFillAppstore className="cursor-pointer hidden sm:block" size={25}/>
@@ -21,7 +29,7 @@ const DashboardNav = () => {
             <Image src='/users.png' alt="/users.png" className=" rounded-full" width={25} height={25}/>
             <span className=" font-semibold text-sm"> 123 </span>
         </div>
-        <AiOutlineSetting className="cursor-pointer" size={25}/>
+        <AiOutlineHome onClick={() => router.push('/')} className="cursor-pointer" size={25}/>
       </div>  
     </div>
   )
