@@ -33,7 +33,7 @@ const UserOption: React.FC<Props> = ({isLoading, setIsLoading, user}) => {
       setValue('image', user.image)
       setFileLink(user.image)
     }
-  }, [user])
+  }, [user, setValue])
   const onImageChange = (e:ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files)  {
       console.log('error');

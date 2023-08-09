@@ -44,7 +44,7 @@ const ProfiloId = () => {
         setData(data[0]);
         setIsLoading(false);
       })
-  }, [])
+  }, [id])
 
   
   return (

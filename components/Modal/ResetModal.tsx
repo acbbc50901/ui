@@ -22,7 +22,7 @@ const ResetModal = () => {
     if (params.get('data')) {
       resetModal.onOpen();
     }
-  }, [])
+  }, [resetModal, params])
 
   const onSubmit : SubmitHandler<FieldValues> = async (data) => {
     const { email, password } = data;

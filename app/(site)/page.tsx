@@ -75,7 +75,7 @@ export default function Home() {
 
   useEffect(() => {
     feachdata();
-  }, [])
+  }, [feachdata])
 
   const text = useRef<HTMLDivElement>(null);
 

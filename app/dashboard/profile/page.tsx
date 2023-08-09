@@ -16,7 +16,7 @@ interface Props {
   views: number,
   onClick?: () => void,
 }
-const profile = () => {
+const Profile = () => {
   const [list, setList] = useState<Props[]>();
   const router = useRouter();
 
@@ -47,4 +47,4 @@ const profile = () => {
   )
 }
 
-export default profile
+export default Profile
