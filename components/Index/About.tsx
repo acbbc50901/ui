@@ -105,7 +105,7 @@ const About = () => {
             <h5 className=' font-semibold text-md sm:text-xl'>擁有技能</h5>
             <div className=' p-1 flex flex-wrap gap-3'>
               {
-                Skill.map((item, key) => <Tilt><Image key={key} className='w-[65px] h-[65px] rounded-full p-1 object-cover hover:bg-slate-300 transition' width={200} height={200} src={item.image} alt={item.type}/></Tilt>)
+                Skill.map((item, key) => <Tilt key={key}><Image  className='w-[65px] h-[65px] rounded-full p-1 object-cover hover:bg-slate-300 transition' width={200} height={200} src={item.image} alt={item.type}/></Tilt>)
               }
             </div>
           </div>
