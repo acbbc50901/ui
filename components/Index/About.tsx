@@ -1,5 +1,29 @@
 import React from 'react'
 import Image from 'next/image'
+import Wrapper from '@/hoc/SectionWrapper'
+import { motion } from 'framer-motion'
+import { Tilt } from 'react-tilt'
+
+const fadeIn = (direction: string, type: any, delay: number, duration: number) => {
+  return {
+    hidden: {
+      x: direction === "left" ? 100 : direction === "right" ? -100 : 0,
+      y: direction === "up" ? 100 : direction === "down" ? -100 : 0,
+      opacity: 0,
+    },
+    show: {
+      x: 0,
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: type,
+        delay: delay,
+        duration: duration,
+        ease: "easeOut",
+      },
+    },
+  };
+};
 
 const Skill = [
   {
@@ -52,7 +76,8 @@ const About = () => {
   return (
     <div className=' h-auto lg:h-[100vh] flex flex-col gap-2 lg:gap-0 lg:flex-row'>
       <div className=' w-full p-2 sm:w-[80%] lg:w-[60%]  h-full flex justify-center items-center m-auto lg:m-0'>
-        <div className=' border w-full sm:w-[80%] max-w-xl flex flex-col p-3 sm:p-5 border-neutral-400 shadow-lg rounded-sm'>
+        <motion.div variants={fadeIn('left', 'spring', 2 *0.5 , 1)}
+          className=' border w-full sm:w-[80%] max-w-xl flex flex-col p-3 sm:p-5 border-neutral-400 shadow-lg rounded-sm'>
           <div className=' py-2'>
             <h5 className=' text-xl sm:text-2xl font-bold m-0'>黃信誠</h5>
             <p className=' text-sm text-neutral-500'>Jarry</p>
@@ -80,17 +105,19 @@ const About = () => {
             <h5 className=' font-semibold text-md sm:text-xl'>擁有技能</h5>
             <div className=' p-1 flex flex-wrap gap-3'>
               {
-                Skill.map((item, key) => <Image key={key} className='w-[50px] h-[50px] rounded-full p-1 object-cover hover:bg-slate-300 transition' width={200} height={200} src={item.image} alt={item.type}/>)
+                Skill.map((item, key) => <Tilt><Image key={key} className='w-[65px] h-[65px] rounded-full p-1 object-cover hover:bg-slate-300 transition' width={200} height={200} src={item.image} alt={item.type}/></Tilt>)
               }
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
       <div className=' w-full sm:w-[60%] lg:w-[40%] h-[600px] lg:h-full relative m-auto lg:m-0'>
-        <Image src='/cat.jpg' className='object-cover min-w-[100%] min-h-[100%]' alt='' fill></Image>
+        <motion.div variants={fadeIn('right', 'spring', 1 *0.5 , 1)} className=' w-full h-full'>
+          <Image src='/cat.jpg' className='object-cover min-w-[100%] min-h-[100%]' alt='' fill></Image>
+        </motion.div>
       </div>
     </div>
   )
 }
 
-export default About
+export default Wrapper(About, 'About')

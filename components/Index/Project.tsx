@@ -19,7 +19,8 @@ interface profiloList {
 const Project = () => {
   // const [isLoading, setIsLoading] = useState(false);
   // const [profiloList, setProfiloList] = useState<profiloList[]>([]);
-
+  const srbox = useRef<any>(null);
+  const box = useRef<any>(null);
   // useEffect(() => {
   //   setIsLoading(true);
   //   axios.get('/api/dashboard/profile/')
@@ -29,34 +30,46 @@ const Project = () => {
   //       setIsLoading(false);
   //     })
   // }, [])
-
+  const MoveBox = (text: string) => {
+    if (srbox.current && box.current) {
+      if (text === '左') {
+        srbox.current.scrollLeft -= box.current.offsetWidth + 2;
+      } else {
+        srbox.current.scrollLeft += box.current.offsetWidth + 2;
+      }
+    }
+  }
   return (
-    <div className='flex flex-col lg:flex-row flex-wrap lg:h-[80vh] gap-2 sm:gap-0 justify-center items-center'>
-      <div className=' w-full lg:w-[28%] flex flex-col items-center h-full lg:h-auto justify-center p-2 lg:gap-2 text-center'>
-        <h1 className='text-lg lg:text-2xl font-bold'>歷年作品</h1>
-        <p className=' text-sm lg:text-base'>經年累月所累積的作品<br/>裡面雖說也有沒那麼好的作品<br/>但也是一步一步走過來的痕跡</p>
-        <Button>More</Button>
-      </div>
-      <div  className=' w-full lg:w-[72%] overflow-y-auto flex justify-start gap-1'>
-        <div className='p-4 border rounded-sm bg-neutral-200'>
-          <div className='w-[320px] h-[180px] bg-slate-300'/>
-          <p>8888</p>
+    <div className='flex flex-col flex-wrap lg:h-[100vh] gap-2 justify-center items-start'>
+      <h1 className='text-lg lg:text-2xl font-bold'>歷年作品</h1>
+      <p className=' text-sm lg:text-base'>經年累月所累積的作品，裡面雖說也有沒那麼好的作品，但也是一步一步走過來的痕跡</p>
+      <Button>More</Button>
+      <div className=' w-full relative'>
+        <div className=' absolute w-full h-full cursor-pointer flex z-10'>
+          <div className=' w-[50%] h-full cursor-pointer ' onClick={() => MoveBox('左')}/>
+          <div className=' w-[50%] h-full cursor-pointer ' onClick={() => MoveBox('右')}/>
         </div>
-        <div className='p-4 border rounded-sm bg-neutral-200'>
-          <div className='w-[320px] h-[180px] bg-slate-300'/>
-          <p>8888</p>
-        </div>
-        <div className='p-4 border rounded-sm bg-neutral-200'>
-          <div className='w-[320px] h-[180px] bg-slate-300'/>
-          <p>8888</p>
-        </div>
-        <div className='p-4 border rounded-sm bg-neutral-200'>
-          <div className='w-[320px] h-[180px] bg-slate-300'/>
-          <p>8888</p>
-        </div>
-        <div className='p-4 border rounded-sm bg-neutral-200'>
-          <div className='w-[320px] h-[180px] bg-slate-300'/>
-          <p>8888</p>
+        <div ref={srbox} className=' w-full overflow-y-auto scroll-smooth transition flex justify-start gap-1 relative'>
+          <div ref={box} className='p-4 border rounded-sm bg-neutral-200'>
+            <div className='w-[320px] h-[180px] bg-slate-300'/>
+            <p>8888</p>
+          </div>
+          <div className='p-4 border rounded-sm bg-neutral-200'>
+            <div className='w-[320px] h-[180px] bg-slate-300'/>
+            <p>8888</p>
+          </div>
+          <div className='p-4 border rounded-sm bg-neutral-200'>
+            <div className='w-[320px] h-[180px] bg-slate-300'/>
+            <p>8888</p>
+          </div>
+          <div className='p-4 border rounded-sm bg-neutral-200'>
+            <div className='w-[320px] h-[180px] bg-slate-300'/>
+            <p>8888</p>
+          </div>
+          <div className='p-4 border rounded-sm bg-neutral-200'>
+            <div className='w-[320px] h-[180px] bg-slate-300'/>
+            <p>8888</p>
+          </div>
         </div>
       </div>
     </div>

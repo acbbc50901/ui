@@ -1,38 +1,49 @@
 'use client'
 import React, {useState, useEffect} from 'react'
-import { motion,AnimatePresence } from 'framer-motion'
+import { motion,AnimatePresence, useSpring } from 'framer-motion'
 import useLoading from '@/app/hooks/useLoading'
 import {usePathname} from 'next/navigation'
+import Image from 'next/image'
 
-const TransiotionEffect = () => {
-  const { isOpen } = useLoading()
-  // const [open, setOpen] = useState(true);
+const TransitionEffect = () => {
+  const { isOpen, onOpen, onClose } = useLoading();
+  const param = usePathname();
+  const animationProps = useSpring(0);
 
   useEffect(() => {
-  }, [])
-  return (
-    <>
-      <AnimatePresence mode='wait'>
-        <motion.div className=' fixed top-0 bottom-0 right-full w-screen h-screen z-30 bg-purple-600'
-          initial= {{x: "100%", width: '100%'}}
-          animate={ isOpen ? {x: "100%", width: '100%'} : {x: '0%', width: '0%'}  }
-          transition={{duration: 0.8, ease: 'easeInOut'}}
-        />
-        {/* <motion.div className=' fixed top-0 bottom-0 right-full w-screen h-screen z-20 bg-purple-900'
-          initial= {{x: "100%", width: '100%'}}
-          animate={{x: '0%', width: '0%'}}
-          exit={{x: ['0%', "100%"], width: ['0%', "100%"]}}
-          transition={{delay: 0.2 ,duration: 0.8, ease: 'easeInOut'}}
-        />
-        <motion.div className=' fixed top-0 bottom-0 right-full w-screen h-screen z-10 bg-purple-100'
-          initial= {{x: "100%", width: '100%'}}
-          animate={{x: '0%', width: '0%'}}
-          exit={{x: ['0%', "100%"], width: ['0%', "100%"]}}
-          transition={{delay: 0.4 , duration: 0.8, ease: 'easeInOut'}}
-        /> */}
-      </AnimatePresence>
-    </>
-  )
-}
+    setTimeout(() => {
+      onClose();
+    }, 2000)
+  }, [param]);
 
-export default TransiotionEffect
+  return (
+    <AnimatePresence mode='wait' initial={false}>
+      {isOpen &&  (
+        <motion.div
+          initial={{ translateY: '100%' }}
+          animate={{ translateY: '0%' }}
+          exit={{ translateY: '-100%' }}
+          className={` 
+          fixed top-0 right-0 w-screen overflow-hidden transition h-screen z-[99] bg-slate-100 flex justify-center items-center`}
+        >
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0 }}
+            className='relative w-[80px] h-[80px]'
+          >
+            <motion.img
+              src='/logo.png'
+              alt='/'
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
+export default TransitionEffect;

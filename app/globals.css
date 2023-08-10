@@ -9,6 +9,9 @@ body, html, #root {
   text-decoration: none;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .gridbox {

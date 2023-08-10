@@ -48,7 +48,7 @@ const ProfiloId = () => {
 
   
   return (
-    <div className='container mx-auto mt-[80px] relative flex flex-col-reverse lg:flex-row px-1 sm:px-4'>
+    <div className='container mx-auto relative pt-[100px] flex flex-col-reverse lg:flex-row px-1 sm:px-4'>
       {
         isLoading ? (
           <div>g16</div>

@@ -19,7 +19,7 @@ const Input: React.FC<Props> = ({label, id, type = 'text',  disabled,register, e
         placeholder=' ' type={type} id={id} disabled={disabled} {...register(id, {required})}/>
         { 
           errors[id] && (
-            <p className='text-rose-600'>{id} 是必填!!</p>
+            <p className='text-rose-600'>{label} 是必填!!</p>
           )
         }
       <label  className={twMerge(`absolute text-sm pr-3 text-zinc-400 duration-150 

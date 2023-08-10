@@ -7,7 +7,7 @@ interface Props {
 }
 
 const useLoading = create<Props>((set) => ({
-  isOpen: false,
+  isOpen: true,
   onOpen: () => set({isOpen: true}),
   onClose: () => set({isOpen: false}),
 }))

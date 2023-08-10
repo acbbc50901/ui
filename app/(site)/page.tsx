@@ -3,13 +3,13 @@
 import { useRouter } from "next/navigation";
 import { ChangeEvent, useEffect, useRef, useState } from "react"
 import { supabase } from '@/supabase/supabase'
-import HitMeIcon from "@/components/HitMeIcon";
-import AnimateText from "@/components/AnimateText";
+import useLoading from "../hooks/useLoading";
 import Hero from "@/components/Index/Hero";
 import EffectText from "@/components/Index/EffectText";
 import Contact from "@/components/Index/Contact";
 import About from "@/components/Index/About";
 import Project from "@/components/Index/Project";
+import Project2 from "@/components/Index/Project2";
 import Footer from "@/components/Footer";
 import { useMotionValueEvent, useScroll, motion } from "framer-motion";
 
@@ -18,7 +18,7 @@ export default function Home() {
   const router = useRouter();
   const [list, setList] = useState<any[] | null>();
   const data = useRef<any>();
-  
+  const {onClose, onOpen} = useLoading();
   const feachdata = async () => {
     let { data: orders, error } = await supabase
       .from('orders')
@@ -75,7 +75,7 @@ export default function Home() {
 
   useEffect(() => {
     feachdata();
-  }, [feachdata])
+  }, [])
 
   const text = useRef<HTMLDivElement>(null);
 
@@ -93,8 +93,8 @@ export default function Home() {
         <EffectText baseVelocity={-400}/>
         <EffectText baseVelocity={400}/>
         <About/>
+        <Project2/>
         <div className=" container mx-auto">
-          <Project/>
           <Contact/>
         </div>
         <Footer/>

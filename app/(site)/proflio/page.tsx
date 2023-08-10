@@ -61,7 +61,7 @@ const Poflio = () => {
   }, [])
 
   return (
-    <div className='container mx-auto mt-[80px] h-full flex flex-col'>
+    <div className='container mx-auto h-full flex pt-[80px] flex-col'>
       {
         isLoading ? (
           <div className=' flex justify-center items-center h-full'>

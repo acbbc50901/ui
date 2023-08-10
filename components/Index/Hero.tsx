@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import { Tilt } from 'react-tilt'
 
 const Hero = () => {
   return (
@@ -11,9 +12,9 @@ const Hero = () => {
         </div>
       </div>
       <div className=' w-full lg:w-[50%] h-auto lg:h-full flex justify-center items-center'>
-        <div className=' w-[280px] h-[180px] sm:w-[600px] sm:h-[360px] lg:w-[440px] lg:h-[270px] xl:w-[600px] xl:h-[360px] 2xl:w-[760px] 2xl:h-[450px] relative'>
+        <Tilt className=' w-[280px] h-[180px] sm:w-[600px] sm:h-[360px] lg:w-[440px] lg:h-[270px] xl:w-[600px] xl:h-[360px] 2xl:w-[760px] 2xl:h-[450px] relative'>
           <Image src='/testimg.jpg' alt='' fill className=' max-w-none'/>
-        </div>
+        </Tilt>
       </div>
     </div>
   )

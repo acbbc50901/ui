@@ -1,7 +1,6 @@
 import React, {useEffect, useRef, useState} from 'react'
 import {
-  motion, useScroll, useSpring, useTransform, useMotionValueEvent,
-  useMotionValue, useVelocity, useAnimationFrame, transform,
+  motion, useScroll, useTransform, 
 } from 'framer-motion'
 import { wrap } from "@motionone/utils";
 
